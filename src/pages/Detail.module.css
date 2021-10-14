@@ -1,0 +1,51 @@
+.detailContent {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 0 10%;
+  margin: 0 auto;
+}
+
+.detailHeader {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  border-bottom: 1px solid #c9c9c9;
+  place-content: flex-start;
+  place-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.arrowBack {
+  font-size: xx-large;
+  margin: 0 10px;
+  border-right: 2px solid #e6e6e6;
+  margin-right: 15px;
+  padding-right: 15px;
+}
+
+.mediaContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.mediaResource {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.descriptionResource {
+  text-align: justify;
+}
+
+@media (max-width: 500px) {
+  .detailContent {
+    width: 100%;
+  }
+}
