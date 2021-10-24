@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import { itemTitle } from "./Items.module.css";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import GridCards from "./GridCards";
-import { AppContext } from "../../context/AppContext";
 
 export default function Items({ items }) {
   const [isSort, setIsSort] = useState(false);

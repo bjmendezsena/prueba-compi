@@ -1,15 +1,15 @@
-import { getFavorites } from "../services/handleFavorites";
 import { useHistory } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { TALLERES_PATH } from "../routing/paths";
 import { buttonBack } from "./Favorite.module.css";
 import GridCards from "../components/items/GridCards";
 import Dialog from "../components/dialog/Dialog";
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { useSelector } from "react-redux";
+import { favoritosSelector } from "../redux/favoritos/favoritosSelector";
 
 export default function Favorites() {
-  const {favoritos} = useContext(AppContext);
+  const { favoritos } = useSelector(favoritosSelector);
+
   const history = useHistory();
   const message = "Aún no has añadido recursos a tus favoritos ¿añadimos?";
 

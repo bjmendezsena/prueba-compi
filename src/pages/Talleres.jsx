@@ -1,19 +1,17 @@
 import Items from "../components/items/Items";
-import { useFetch } from "../hooks/useFetch";
 import SectionHeader from "../components/header/SectionHeader";
 import Dialog from "../components/dialog/Dialog";
 import { useWindowWidth } from "../hooks/useWindowWidth";
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { useSelector } from "react-redux";
+import { talleresSelector } from "../redux/talleres/talleresSelector";
 
 export default function Talleres() {
-  const { listaTalleres, isLoading, errorTalleres } = useContext(AppContext);
-  const { items, loading, error } = useFetch();
+  const {listaTalleres, error, isLoading} = useSelector(talleresSelector);
   const message = isLoading && "Buscando talleres...";
 
   const isMobileWindow = useWindowWidth();
 
-  if (errorTalleres) return <Dialog message={errorTalleres} />;
+  if (error) return <Dialog message={error} />;
 
   return (
     <>

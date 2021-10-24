@@ -7,14 +7,17 @@ import {
   favoriteCardSelected,
 } from "./Items.module.css";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { DETAIL_PATH } from "../../routing/paths";
-import { AppContext } from "../../context/AppContext";
+import { useDispatch, useSelector } from "react-redux";
+import {agregarAFavoritos, eliminarDeFavoritos} from '../../redux/favoritos/actions';
+import { favoritosSelector } from "../../redux/favoritos/favoritosSelector";
+
 
 export default function Card({ item, removeFavorite }) {
-  const { eliminarDeFavoritos, addToFavorite, favoritos } =
-    useContext(AppContext);
+  const dispatch = useDispatch();
+  const {favoritos} = useSelector(favoritosSelector);
+
   const { id, image, tag, title, description } = item;
 
   const isFavorite = favoritos.some((it) => it.id === item.id);
@@ -24,9 +27,9 @@ export default function Card({ item, removeFavorite }) {
   const onClickFavourite = (addFavorite) => {
     console.log(addFavorite)
     if (addFavorite) {
-      return addToFavorite(item);
+      return dispatch(agregarAFavoritos(item));
     }
-    eliminarDeFavoritos(item);
+    dispatch(eliminarDeFavoritos(item));
   };
 
   return (

@@ -2,16 +2,17 @@ import SectionHeader from "../components/header/SectionHeader";
 import Items from "../components/items/Items";
 import Dialog from "../components/dialog/Dialog";
 import { useWindowWidth } from "../hooks/useWindowWidth";
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+
+import { useSelector } from "react-redux";
+import { rinconesSelector } from "../redux/rincones/rinconesSelector";
 
 export default function Rincones() {
-  const { listaRincones, errorRincones, isLoading } = useContext(AppContext);
+  const {listaRincones, error, isLoading} = useSelector(rinconesSelector);
   const message = "Buscando Rincones...";
 
   const isMobileWindow = useWindowWidth();
 
-  if (errorRincones) return <Dialog message={errorRincones} />;
+  if (error) return <Dialog message={error} />;
 
   return (
     <>
