@@ -3,18 +3,10 @@ import style from "./App.module.css";
 import Header from "../components/header/Header";
 import router from "../routing/router";
 import { Suspense, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { obenerListaDeTalleres } from "../redux/talleres/actions";
-import { obtenerListaDeRincones } from "../redux/rincones/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { talleresSelector } from "../redux/talleres/talleresSelector";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(obenerListaDeTalleres());
-    dispatch(obtenerListaDeRincones());
-  }, []);
-
   return (
     <Router>
       <div className={style.App}>
