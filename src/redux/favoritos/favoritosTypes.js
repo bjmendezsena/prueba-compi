@@ -1,0 +1,4 @@
+export const FAVOURITES_TYPES = {
+    ADD_TO_FAVORITE: "[rincones] ADD_TO_FAVORITE",
+    REMOVE_FROM_FAVORITE: "[rincones] REMOVE_FROM_FAVORITE",
+}

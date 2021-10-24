@@ -1,0 +1,1 @@
+export const talleresSelector = (state) => state.talleres;
